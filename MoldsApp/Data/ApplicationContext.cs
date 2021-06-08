@@ -8,9 +8,17 @@ namespace MoldsApp.Data
 {
     public partial class ApplicationContext : DbContext
     {
+        private static ApplicationContext _context;
         public ApplicationContext()
             : base("name=MoldsDatabase")
         {
+        }
+
+        public static ApplicationContext GetContext()
+        {
+            if (_context == null)
+                _context = new ApplicationContext();
+            return _context;
         }
 
         public virtual DbSet<Molds> Molds { get; set; }
