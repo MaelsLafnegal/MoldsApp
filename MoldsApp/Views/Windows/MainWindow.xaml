@@ -29,6 +29,33 @@
             <RowDefinition/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        
+
+        <DataGrid x:Name="DGridGames" 
+                  AutoGenerateColumns="False" 
+                  IsReadOnly="True" 
+                  Foreground="White" 
+                  BorderBrush="White" 
+                  Background="#FF241F34"
+                  Grid.Column="1"
+                  Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Id}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Заказчик" Binding="{Binding Customer}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Игра" Binding="{Binding Game}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Cost, StringFormat={}{0:N0} руб}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat={}{0:d}}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="Auto"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Width="150" Height="40" Style="{StaticResource MaterialDesignRaisedButton}" 
+                         materialDesign:ButtonAssist.CornerRadius="6" BorderThickness="2" BorderBrush="DarkRed"
+                         Background="Red" Foreground="White" FontFamily="C:\Users\nicen\source\repos\g4mesh0p\g4mesh0p\Fonts\#Russo One" ToolTip="Редактирует запись в таблице" Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Window>
