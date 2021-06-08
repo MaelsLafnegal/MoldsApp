@@ -26,5 +26,10 @@ namespace MoldsApp.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }
+
+        static ApplicationContext()
+        {
+            Database.SetInitializer<ApplicationContext>(new MoldsInitializer());
+        }
     }
 }
