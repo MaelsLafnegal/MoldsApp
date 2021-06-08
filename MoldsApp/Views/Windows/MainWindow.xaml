@@ -5,12 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoldsApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:vm="clr-namespace:MoldsApp.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="550" 
         Width="1000"
         WindowStartupLocation="CenterScreen">
-    
+
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+
     <Grid>
         
         <Grid.ColumnDefinitions>
