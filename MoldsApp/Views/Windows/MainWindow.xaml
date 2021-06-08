@@ -30,27 +30,44 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
-        <DataGrid x:Name="DGridGames" 
+        <DataGrid x:Name="DGridMolds" 
                   AutoGenerateColumns="False" 
                   IsReadOnly="True" 
                   Foreground="White" 
                   BorderBrush="White" 
                   Background="#FF241F34"
                   Grid.Column="1"
-                  Grid.Row="1">
+                  Grid.Row="1"
+                  ItemsSource="{Binding Path=MoldsList}">
+            
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер" Binding="{Binding Id}" Width="Auto"></DataGridTextColumn>
-                <DataGridTextColumn Header="Заказчик" Binding="{Binding Customer}" Width="Auto"></DataGridTextColumn>
-                <DataGridTextColumn Header="Игра" Binding="{Binding Game}" Width="Auto"></DataGridTextColumn>
-                <DataGridTextColumn Header="Стоимость" Binding="{Binding Cost, StringFormat={}{0:N0} руб}" Width="Auto"></DataGridTextColumn>
-                <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat={}{0:d}}" Width="Auto"></DataGridTextColumn>
-                <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Тип" Binding="{Binding Type}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Пресс-форма" Binding="{Binding Name}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Кус" Binding="{Binding Kus}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Матрица кол-во" Binding="{Binding Matrix_Amount}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Пуансон кол-во" Binding="{Binding Punch_Amount}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Выталкиватель кол-во" Binding="{Binding Ejector_Amount}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Центр кол-во" Binding="{Binding Centre_Amount}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Пуансон размер" Binding="{Binding Punch_Size}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Центр размер" Binding="{Binding Center_Size}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Матрица высота" Binding="{Binding Matrix_Height}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="ПРЕСС" Binding="{Binding Press}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Примечание" Binding="{Binding Note}" Width="Auto"></DataGridTextColumn>
                 <DataGridTemplateColumn Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Width="150" Height="40" Style="{StaticResource MaterialDesignRaisedButton}" 
-                         materialDesign:ButtonAssist.CornerRadius="6" BorderThickness="2" BorderBrush="DarkRed"
-                         Background="Red" Foreground="White" FontFamily="C:\Users\nicen\source\repos\g4mesh0p\g4mesh0p\Fonts\#Russo One" ToolTip="Редактирует запись в таблице" Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click"/>
+                            <Button Width="150" 
+                                    Height="40" 
+                                    Style="{StaticResource MaterialDesignRaisedButton}" 
+                                    materialDesign:ButtonAssist.CornerRadius="6" 
+                                    BorderThickness="2" BorderBrush="DarkRed"
+                                    Background="Red" 
+                                    Foreground="White" 
+                                    FontFamily="C:\Users\nicen\source\repos\g4mesh0p\g4mesh0p\Fonts\#Russo One" 
+                                    ToolTip="Редактирует запись в таблице" 
+                                    Content="Редактировать" 
+                                    Name="BtnEdit"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
