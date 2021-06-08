@@ -22,7 +22,7 @@ namespace MoldsApp
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();          
         }
     }
 }
