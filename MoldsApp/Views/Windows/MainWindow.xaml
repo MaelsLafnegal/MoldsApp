@@ -20,7 +20,7 @@
     </Window.DataContext>
 
     <Border Background="#2f2e3c" 
-            CornerRadius="20">
+            CornerRadius="10">
 
         <Grid>
         
