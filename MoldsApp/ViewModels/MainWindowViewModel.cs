@@ -30,7 +30,7 @@ namespace MoldsApp.ViewModels
             set
             {
                 allMolds = moldscollection();
-                OnPropertyChanged();
+                //OnPropertyChanged();
             }
         }
         #endregion
