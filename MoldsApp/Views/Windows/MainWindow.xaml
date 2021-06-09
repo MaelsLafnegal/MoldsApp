@@ -82,7 +82,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-            <!--<Button Grid.Column="1" 
+            <Button Grid.Column="1" 
                     Grid.Row="2"
                     Width="140"
                     Height="40"
@@ -90,14 +90,8 @@
                     BorderBrush="#00ccfe"                   
                     Content="Добавить"
                     FontSize="20"
-                    materialDesign:ButtonAssist.CornerRadius="4"/>-->
-
-            <Button Grid.Column="1" 
-                    Grid.Row="2"
-                    Width="140"
-                    Height="40"
-                    Content="Добавить"
-                    />
+                    materialDesign:ButtonAssist.CornerRadius="4"/>
+           
 
         </Grid>
 
