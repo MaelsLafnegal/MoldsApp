@@ -90,8 +90,31 @@
                     BorderBrush="#00ccfe"                   
                     Content="Добавить"
                     FontSize="20"
-                    materialDesign:ButtonAssist.CornerRadius="4"/>
-           
+                    materialDesign:ButtonAssist.CornerRadius="4"
+                    HorizontalAlignment="Left"/>
+            
+            <Button Grid.Column="1" 
+                    Grid.Row="2"
+                    Width="140"
+                    Height="40"
+                    Background="#00ccfe"
+                    BorderBrush="#00ccfe"                   
+                    Content="Добавить"
+                    FontSize="20"
+                    materialDesign:ButtonAssist.CornerRadius="4"
+                    HorizontalAlignment="Center"/>
+
+            <Button Grid.Column="1" 
+                    Grid.Row="2"
+                    Width="140"
+                    Height="40"
+                    Background="#00ccfe"
+                    BorderBrush="#00ccfe"                   
+                    Content="Добавить"
+                    FontSize="20"
+                    materialDesign:ButtonAssist.CornerRadius="4"
+                    HorizontalAlignment="Right"/>
+
 
         </Grid>
 
