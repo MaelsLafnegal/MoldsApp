@@ -10,22 +10,29 @@
         Title="MainWindow" 
         Height="750" 
         Width="1200"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Background="{x:Null}">
 
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
 
-    <Grid>
+    <Border Background="#2f2e3c" 
+            CornerRadius="20">
+
+        <Grid>
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="900"/>
             <ColumnDefinition/>
             <ColumnDefinition Width="30"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
             <RowDefinition/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
@@ -35,7 +42,7 @@
                   IsReadOnly="True" 
                   Foreground="White" 
                   BorderBrush="White" 
-                  Background="#FF241F34"
+                  Background="#2b2a38"
                   Grid.Column="1"
                   Grid.Row="1"
                   ItemsSource="{Binding Path=AllMolds}">
@@ -75,4 +82,7 @@
         </DataGrid>
 
     </Grid>
+
+    </Border>
+
 </Window>
