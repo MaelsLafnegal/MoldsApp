@@ -34,6 +34,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
@@ -81,7 +82,17 @@
             </DataGrid.Columns>
         </DataGrid>
 
-    </Grid>
+            <Button Grid.Column="1" 
+                    Grid.Row="2"
+                    Width="140"
+                    Height="40"
+                    Background="#00ccfe"
+                    BorderBrush="#00ccfe"                   
+                    Content="Добавить"
+                    FontSize="20"
+                    materialDesign:ButtonAssist.CornerRadius="4"/>
+
+        </Grid>
 
     </Border>
 
