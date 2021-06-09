@@ -17,15 +17,25 @@ namespace MoldsApp.ViewModels
     {
         #region Переменные
 
-        private List<Molds> _MoldsList;       
-        public List<Molds> MoldsList
-        {
-            get => _MoldsList;
-            set => Set(ref _MoldsList, ApplicationContext.GetContext().Molds.ToList());
+        #region Список всех прессформ
+        private ObservableCollection<Molds> moldscollection()
+        {           
+            return new ObservableCollection<Molds>(ApplicationContext.GetContext().Molds.ToList());
         }
 
-        
+        private ObservableCollection<Molds> allMolds { get; set; } = new ObservableCollection<Molds>();
+        public ObservableCollection<Molds> AllMolds
+        {
+            get => allMolds;
+            set
+            {
+                allMolds = moldscollection();
+                OnPropertyChanged();
+            }
+        }
+        #endregion
 
+        
         #endregion
 
         #region Команды
@@ -50,6 +60,8 @@ namespace MoldsApp.ViewModels
             CloseApplicationCommand = new LamdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
 
             #endregion
+
+            AllMolds = moldscollection();
         }
     }
 }

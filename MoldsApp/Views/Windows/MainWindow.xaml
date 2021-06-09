@@ -39,7 +39,7 @@
                   Background="#FF241F34"
                   Grid.Column="1"
                   Grid.Row="1"
-                  ItemsSource="{Binding Path=MoldsList}">
+                  ItemsSource="{Binding Path=AllMolds}">
             
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер" Binding="{Binding Id}" Width="Auto"></DataGridTextColumn>

@@ -8,6 +8,11 @@ namespace MoldsApp.Data
 {
     public partial class ApplicationContext : DbContext
     {
+        static ApplicationContext()
+        {
+            Database.SetInitializer<ApplicationContext>(new MoldsInitializer());
+        }
+
         private static ApplicationContext _context;
         public ApplicationContext()
             : base("name=MoldsDatabase")
@@ -27,9 +32,6 @@ namespace MoldsApp.Data
         {
         }
 
-        static ApplicationContext()
-        {
-            Database.SetInitializer<ApplicationContext>(new MoldsInitializer());
-        }
+        
     }
 }
