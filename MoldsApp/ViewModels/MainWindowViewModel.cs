@@ -47,8 +47,8 @@ namespace MoldsApp.ViewModels
         {
             get
             {
-                filteredMolds = allMolds;
-                if (string.IsNullOrEmpty(TxtType)) return allMolds;
+                filteredMolds = AllMolds;
+                if (string.IsNullOrEmpty(TxtType)) return AllMolds;
                 return new ObservableCollection<Molds>(filteredMolds.Where(d => d.Name.ToLower().Contains(TxtType.ToLower())).ToList());
             }
 
