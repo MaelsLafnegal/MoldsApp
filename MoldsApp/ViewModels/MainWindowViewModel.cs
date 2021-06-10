@@ -80,9 +80,8 @@ namespace MoldsApp.ViewModels
         private bool CanSearchCommandExecute(object p) => true;
 
         private void OnSearchCommandExecuted(object p)
-        {
-            AllMolds = FilteredMolds;
-            OnPropertyChanged("AllMolds");
+        {           
+            OnPropertyChanged("FilteredMolds");
         }
 
         #endregion

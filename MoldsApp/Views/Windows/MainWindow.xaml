@@ -46,7 +46,7 @@
                   Background="#2b2a38"
                   Grid.Column="1"
                   Grid.Row="1"
-                  ItemsSource="{Binding Path=AllMolds}">
+                  ItemsSource="{Binding Path=FilteredMolds}">
             
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер" Binding="{Binding Id}" Width="Auto"></DataGridTextColumn>
