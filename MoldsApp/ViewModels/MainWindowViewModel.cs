@@ -18,7 +18,9 @@ namespace MoldsApp.ViewModels
       
         #region Переменные
 
-        #region Текстблок поиска по типу
+        
+
+        #region Текстблоки для поиска
 
         private Molds newMolds { get; set; } = new Molds();
         public string TxtType
@@ -27,8 +29,20 @@ namespace MoldsApp.ViewModels
             set => newMolds.Type = value;
         }
 
+        public string TxtName
+        {
+            get => newMolds.Name;
+            set => newMolds.Name = value;
+        }
+
+        public string TxtKus
+        {
+            get => newMolds.Kus;
+            set => newMolds.Kus = value;
+        }
+
         #endregion
-       
+
         #region Список всех прессформ
 
         private ObservableCollection<Molds> allMolds = new ObservableCollection<Molds>(ApplicationContext.GetContext().Molds.ToList());
@@ -46,12 +60,18 @@ namespace MoldsApp.ViewModels
         public ObservableCollection<Molds> FilteredMolds
         {
             get
-            {
-                filteredMolds = AllMolds;
-                if (string.IsNullOrEmpty(TxtType)) return AllMolds;
-                return new ObservableCollection<Molds>(filteredMolds.Where(d => d.Name.ToLower().Contains(TxtType.ToLower())).ToList());
+            {               
+                filteredMolds = AllMolds;              
+                var someshit = new List<Molds>(filteredMolds);
+                if (TxtName != null)
+                    someshit = someshit.Where(p => p.Name.ToLower().Contains(TxtName.ToLower())).ToList();
+                if (TxtType != null)
+                    someshit = someshit.Where(p => p.Type.ToLower().Contains(TxtType.ToLower())).ToList();
+                if (TxtKus != null)
+                    someshit = someshit.Where(p => p.Kus.ToLower().Contains(TxtKus.ToLower())).ToList();
+                return new ObservableCollection<Molds>(someshit);
             }
-
+            
             set => filteredMolds = value;
         }
 
@@ -80,7 +100,7 @@ namespace MoldsApp.ViewModels
         private bool CanSearchCommandExecute(object p) => true;
 
         private void OnSearchCommandExecuted(object p)
-        {           
+        {            
             OnPropertyChanged("FilteredMolds");
         }
 
@@ -96,7 +116,15 @@ namespace MoldsApp.ViewModels
             SearchCommand = new LamdaCommand(OnSearchCommandExecuted, CanSearchCommandExecute);
 
             #endregion
-           
+
+            #region Экземпляры переменных для поиска
+
+            TxtName = null;
+            TxtKus = null;
+            TxtType = null;
+
+            #endregion
+
         }
     }
 }
