@@ -121,6 +121,13 @@
                     materialDesign:ButtonAssist.CornerRadius="4"
                     HorizontalAlignment="Right"/>
 
+            <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Vertical">
+                <TextBox Margin="5" materialDesign:HintAssist.Hint="Поиск по типу"/>
+                <TextBox Margin="5" materialDesign:HintAssist.Hint="Поиск по пресс-форме"/>
+                <TextBox Margin="5" materialDesign:HintAssist.Hint="Поиск по кусу"/>
+                <TextBox Margin="5"/>
+            </StackPanel>
+
 
         </Grid>
 
