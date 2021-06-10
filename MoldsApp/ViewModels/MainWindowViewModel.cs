@@ -15,29 +15,69 @@ namespace MoldsApp.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
+
+        #region Методы
+
+        #region UpdateCatalogueMethod
+
+        private void UpdateCatalogue()
+        {
+            var currentMolds = ApplicationContext.GetContext().Molds.ToList();
+
+            currentMolds = currentMolds.Where(p => p.Name.ToLower().Contains(TxtType.ToLower())).ToList();
+
+            allMolds = new ObservableCollection<Molds>(currentMolds);
+            AllMolds = new ObservableCollection<Molds>(currentMolds);
+
+            OnPropertyChanged();
+
+        }
+
+        #endregion
+
+        #endregion
+
         #region Переменные
 
-        #region Список всех прессформ
-        private ObservableCollection<Molds> moldscollection()
-        {           
-            return new ObservableCollection<Molds>(ApplicationContext.GetContext().Molds.ToList());
+        #region Текстблок поиска по типу
+
+        private Molds newMolds { get; set; } = new Molds();
+        public string TxtType
+        {
+            get => newMolds.Type;
+            set => newMolds.Type = value;
         }
 
-        private ObservableCollection<Molds> allMolds { get; set; } = new ObservableCollection<Molds>();
+        //private string txtType { get; set; }
+        //public string TxtType
+        //{
+        //    get { return this.txtType; }
+        //    set
+        //    {
+        //        if (this.txtType != value)
+        //        {
+        //            this.txtType = value;
+
+        //        }
+        //    }
+        //}
+
+        #endregion
+
+        #region Список всех прессформ
+
+        private ObservableCollection<Molds> allMolds = new ObservableCollection<Molds>(ApplicationContext.GetContext().Molds.ToList());
         public ObservableCollection<Molds> AllMolds
         {
-            get => allMolds;
-            set
-            {
-                allMolds = moldscollection();
-                //OnPropertyChanged();
-            }
+            get => allMolds; 
+            set => allMolds = value; 
         }
+
         #endregion
 
-        
-        #endregion
 
+        #endregion
+       
         #region Команды
 
         #region CloseApplicationCommand
@@ -51,6 +91,22 @@ namespace MoldsApp.ViewModels
         }
         #endregion
 
+        #region SearchCommand
+
+        public ICommand SearchCommand { get; }
+
+        private bool CanSearchCommandExecute(object p) => true;
+
+        private void OnSearchCommandExecuted(object p)
+        {
+            List <Molds> something = ApplicationContext.GetContext().Molds.ToList();
+            something = something.Where(d => d.Name.ToLower().Contains(TxtType.ToLower())).ToList();            
+            AllMolds = new ObservableCollection<Molds>(something);
+            OnPropertyChanged();
+        }
+
+        #endregion
+
         #endregion
 
         public MainWindowViewModel()
@@ -58,10 +114,10 @@ namespace MoldsApp.ViewModels
             #region Экземпляры команд
 
             CloseApplicationCommand = new LamdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
+            SearchCommand = new LamdaCommand(OnSearchCommandExecuted, CanSearchCommandExecute);
 
             #endregion
-
-            AllMolds = moldscollection();
+            
         }
     }
 }
