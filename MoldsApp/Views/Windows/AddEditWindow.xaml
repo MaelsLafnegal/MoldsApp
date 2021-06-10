@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoldsApp.Views.Windows"
         mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:vm="clr-namespace:MoldsApp.ViewModels"  
         Title="AddEditWindow" Height="450" Width="800">
+
+    <Window.DataContext>
+        <vm:AddEditWindowViewModel/>
+    </Window.DataContext>
+
     <Grid>
-        <Button Content="Закрыть окно"/>
+        <Button Content="Закрыть окно" Command="{Binding CloseApplicationCommand}"/>
     </Grid>
 </Window>

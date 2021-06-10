@@ -21,34 +21,20 @@ namespace MoldsApp.ViewModels
 
         #endregion
 
-
-        #endregion
-
         #region Команды
 
-        #region CloseApplicationCommand
-        public ICommand CloseApplicationCommand { get; }
+        #region CloseWindowCommand
+        public ICommand CloseWindowCommand { get; }
 
-        private bool CanCloseApplicationCommandExecute(object p) => true;
+        private bool CanCloseWindowCommandExecute(object p) => true;
 
-        private void OnCloseApplicationCommandExecuted(object p)
+        private void OnCloseWindowCommandExecuted(object p)
         {
-            Application.Current.Shutdown();
+            Application.Current.Windows[1].Close();
         }
         #endregion
 
-        #region SearchCommand
-
-        public ICommand SearchCommand { get; }
-
-        private bool CanSearchCommandExecute(object p) => true;
-
-        private void OnSearchCommandExecuted(object p)
-        {
-            OnPropertyChanged("FilteredMolds");
-        }
-
-        #endregion
+        
 
         #endregion
 
@@ -56,19 +42,10 @@ namespace MoldsApp.ViewModels
         {
             #region Экземпляры команд
 
-            CloseApplicationCommand = new LamdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
-            SearchCommand = new LamdaCommand(OnSearchCommandExecuted, CanSearchCommandExecute);
-
+            CloseWindowCommand = new LamdaCommand(OnCloseWindowCommandExecuted, CanCloseWindowCommandExecute);
+            
             #endregion
-
-            #region Экземпляры переменных для поиска
-
-            TxtName = null;
-            TxtKus = null;
-            TxtType = null;
-
-            #endregion
-
+          
         }
     }
 }

@@ -10,6 +10,7 @@ using MoldsApp.Data;
 using MoldsApp.Infrastructure.Commands;
 using MoldsApp.Models;
 using MoldsApp.ViewModels.Base;
+using MoldsApp.Views.Windows;
 
 namespace MoldsApp.ViewModels
 {
@@ -104,6 +105,18 @@ namespace MoldsApp.ViewModels
 
         #endregion
 
+        #region Open AddEditWindowCommand
+        public ICommand AddEditWindowCommand { get; }
+
+        private bool CanAddEditWindowCommandExecute(object p) => true;
+
+        private void OnAddEditWindowCommandExecuted(object p)
+        {
+            AddEditWindow window = new AddEditWindow();
+            window.Show();
+        }
+        #endregion
+
         #endregion
 
         public MainWindowViewModel()
@@ -112,6 +125,7 @@ namespace MoldsApp.ViewModels
 
             CloseApplicationCommand = new LamdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
             SearchCommand = new LamdaCommand(OnSearchCommandExecuted, CanSearchCommandExecute);
+            AddEditWindowCommand = new LamdaCommand(OnAddEditWindowCommandExecuted, CanAddEditWindowCommandExecute);
 
             #endregion
 

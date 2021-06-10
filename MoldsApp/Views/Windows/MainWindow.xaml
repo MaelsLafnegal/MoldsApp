@@ -95,7 +95,8 @@
                     Content="Добавить"
                     FontSize="20"
                     materialDesign:ButtonAssist.CornerRadius="4"
-                    HorizontalAlignment="Left"/>
+                    HorizontalAlignment="Left"
+                    Command="{Binding AddEditWindowCommand}"/>
             
             <Button Grid.Column="1" 
                     Grid.Row="2"
