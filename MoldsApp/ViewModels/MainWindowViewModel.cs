@@ -15,28 +15,7 @@ namespace MoldsApp.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
-
-        #region Методы
-
-        #region UpdateCatalogueMethod
-
-        private void UpdateCatalogue()
-        {
-            var currentMolds = ApplicationContext.GetContext().Molds.ToList();
-
-            currentMolds = currentMolds.Where(p => p.Name.ToLower().Contains(TxtType.ToLower())).ToList();
-
-            allMolds = new ObservableCollection<Molds>(currentMolds);
-            AllMolds = new ObservableCollection<Molds>(currentMolds);
-
-            OnPropertyChanged();
-
-        }
-
-        #endregion
-
-        #endregion
-
+      
         #region Переменные
 
         #region Текстблок поиска по типу
@@ -48,36 +27,39 @@ namespace MoldsApp.ViewModels
             set => newMolds.Type = value;
         }
 
-        //private string txtType { get; set; }
-        //public string TxtType
-        //{
-        //    get { return this.txtType; }
-        //    set
-        //    {
-        //        if (this.txtType != value)
-        //        {
-        //            this.txtType = value;
-
-        //        }
-        //    }
-        //}
-
         #endregion
-
+       
         #region Список всех прессформ
 
         private ObservableCollection<Molds> allMolds = new ObservableCollection<Molds>(ApplicationContext.GetContext().Molds.ToList());
         public ObservableCollection<Molds> AllMolds
         {
             get => allMolds; 
-            set => allMolds = value; 
+            set => allMolds = value;           
+        }
+
+        #endregion
+
+        #region Отфильтрованный список прессформ
+
+        private ObservableCollection<Molds> filteredMolds = new ObservableCollection<Molds>(ApplicationContext.GetContext().Molds.ToList());
+        public ObservableCollection<Molds> FilteredMolds
+        {
+            get
+            {
+                filteredMolds = allMolds;
+                if (string.IsNullOrEmpty(TxtType)) return allMolds;
+                return new ObservableCollection<Molds>(filteredMolds.Where(d => d.Name.ToLower().Contains(TxtType.ToLower())).ToList());
+            }
+
+            set => filteredMolds = value;
         }
 
         #endregion
 
 
         #endregion
-       
+
         #region Команды
 
         #region CloseApplicationCommand
@@ -99,10 +81,8 @@ namespace MoldsApp.ViewModels
 
         private void OnSearchCommandExecuted(object p)
         {
-            List <Molds> something = ApplicationContext.GetContext().Molds.ToList();
-            something = something.Where(d => d.Name.ToLower().Contains(TxtType.ToLower())).ToList();            
-            AllMolds = new ObservableCollection<Molds>(something);
-            OnPropertyChanged();
+            AllMolds = FilteredMolds;
+            OnPropertyChanged("AllMolds");
         }
 
         #endregion
@@ -117,7 +97,7 @@ namespace MoldsApp.ViewModels
             SearchCommand = new LamdaCommand(OnSearchCommandExecuted, CanSearchCommandExecute);
 
             #endregion
-            
+           
         }
     }
 }
