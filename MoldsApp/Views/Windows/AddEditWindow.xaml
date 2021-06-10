@@ -14,6 +14,6 @@
     </Window.DataContext>
 
     <Grid>
-        <Button Content="Закрыть окно" Command="{Binding CloseApplicationCommand}"/>
+        <Button Content="Закрыть окно" Command="{Binding CloseWindowCommand}"/>
     </Grid>
 </Window>
