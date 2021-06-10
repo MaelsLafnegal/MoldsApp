@@ -17,9 +17,7 @@ namespace MoldsApp.ViewModels
     {
       
         #region Переменные
-
-        
-
+       
         #region Текстблоки для поиска
 
         private Molds newMolds { get; set; } = new Molds();
