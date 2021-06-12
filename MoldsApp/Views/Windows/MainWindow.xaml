@@ -127,9 +127,9 @@
                     Command="{Binding SearchCommand}"/>
 
             <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Vertical">
-                <TextBox Text="{Binding TxtType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Поиск по типу"/>
-                <TextBox Text="{Binding TxtName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Поиск по пресс-форме"/>
-                <TextBox Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Поиск по кусу"/>
+                <TextBox Foreground="White" Text="{Binding TxtType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Поиск по типу"/>
+                <TextBox Foreground="White" Text="{Binding TxtName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Поиск по пресс-форме"/>
+                <TextBox Foreground="White" Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Поиск по кусу"/>
                 <TextBox Margin="5"/>
             </StackPanel>
 

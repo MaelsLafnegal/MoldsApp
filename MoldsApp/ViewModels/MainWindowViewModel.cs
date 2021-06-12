@@ -123,8 +123,7 @@ namespace MoldsApp.ViewModels
 
         private bool CanDeleteMoldCommandExecute(object SelectedItems)
         {
-            if (SelectedItems != null) return true; else return false;
-            
+            if (SelectedItems != null) return true; else return false;           
         }
        
         private void OnDeleteMoldCommandExecuted(object SelectedItems)
