@@ -46,7 +46,8 @@
                   Background="#2b2a38"
                   Grid.Column="1"
                   Grid.Row="1"
-                  ItemsSource="{Binding Path=FilteredMolds}">
+                  ItemsSource="{Binding Path=FilteredMolds}"
+                  SelectedItem="{Binding Path=MoldsForRemoving}">
             
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер" Binding="{Binding Id}" Width="Auto"></DataGridTextColumn>
@@ -105,7 +106,7 @@
                     Background="#00ccfe"
                     BorderBrush="#FF5C5CFF"
                     BorderThickness="1"                   
-                    Content="Добавить"
+                    Content="Удалить"
                     FontSize="20"
                     materialDesign:ButtonAssist.CornerRadius="4"
                     HorizontalAlignment="Center"/>
@@ -117,7 +118,7 @@
                     Background="#00ccfe"
                     BorderBrush="#FF5C5CFF"
                     BorderThickness="1"
-                    Content="Добавить"
+                    Content="Найти"
                     FontSize="20"
                     materialDesign:ButtonAssist.CornerRadius="4"
                     HorizontalAlignment="Right"

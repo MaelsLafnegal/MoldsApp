@@ -76,6 +76,18 @@ namespace MoldsApp.ViewModels
 
         #endregion
 
+        #region Выбранный элемент DataGrid
+
+        private List<Molds> _moldsforremoving;
+
+        public List<Molds> MoldsForRemoving
+        {
+            get => _moldsforremoving;
+            set => Set(ref _moldsforremoving, value);
+        }
+
+        #endregion
+
 
         #endregion
 
@@ -117,6 +129,41 @@ namespace MoldsApp.ViewModels
         }
         #endregion
 
+        #region DeleteMoldCommand
+
+        public ICommand DeleteMoldCommand { get; }
+
+        private bool CanDeleteMoldCommandExecute(object p)
+        {
+            if (MoldsForRemoving != null) return true;
+            else MessageBox.Show("Вы не выбрали элемент в таблице.", "Ошибка",
+         MessageBoxButton.OK, MessageBoxImage.Error); return false;
+        }
+
+        private void OnDeleteMoldCommandExecuted(object p)
+        {
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {MoldsForRemoving.Count()} элементов?", "Внимание",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    ApplicationContext.GetContext().Molds.RemoveRange(MoldsForRemoving);
+                    ApplicationContext.GetContext().SaveChanges();
+                    MessageBox.Show("Данные успешно удалены.", "Удаление данных",
+         MessageBoxButton.OK, MessageBoxImage.Information);
+                    OnPropertyChanged("FilteredMolds");
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString(), "Ошибка",
+         MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        #endregion
+
         #endregion
 
         public MainWindowViewModel()
@@ -126,6 +173,8 @@ namespace MoldsApp.ViewModels
             CloseApplicationCommand = new LamdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
             SearchCommand = new LamdaCommand(OnSearchCommandExecuted, CanSearchCommandExecute);
             AddEditWindowCommand = new LamdaCommand(OnAddEditWindowCommandExecuted, CanAddEditWindowCommandExecute);
+            DeleteMoldCommand = new LamdaCommand(OnDeleteMoldCommandExecuted, CanDeleteMoldCommandExecute);
+
 
             #endregion
 
