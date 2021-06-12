@@ -14,6 +14,29 @@
     </Window.DataContext>
 
     <Grid>
-        <Button Content="Закрыть окно" Command="{Binding CloseWindowCommand}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+            <TextBlock Margin="5" materialDesign:HintAssist.Hint="Укажите тип" Foreground="Black"/>
+            <TextBlock Margin="5"/>
+            <TextBlock Margin="5"/>
+        </StackPanel>
+
+        <Button Content="Закрыть окно" 
+                Command="{Binding CloseWindowCommand}" 
+                Width="150" 
+                Grid.Column="2"/>
     </Grid>
+   
 </Window>
