@@ -141,7 +141,8 @@ namespace MoldsApp.ViewModels
                     ApplicationContext.GetContext().SaveChanges();
                     MessageBox.Show("Данные успешно удалены.", "Удаление данных",
          MessageBoxButton.OK, MessageBoxImage.Information);
-                    OnPropertyChanged();
+                    AllMolds = new ObservableCollection<Molds>(ApplicationContext.GetContext().Molds.ToList());
+                    OnPropertyChanged("FilteredMolds");
                 }
 
                 catch (Exception ex)
