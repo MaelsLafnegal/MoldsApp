@@ -76,19 +76,7 @@ namespace MoldsApp.ViewModels
 
         #endregion
 
-        #region Выбранный элемент DataGrid
-
-        private List<Molds> _moldsforremoving;
-
-        public List<Molds> MoldsForRemoving
-        {
-            get => _moldsforremoving;
-            set => Set(ref _moldsforremoving, value);
-        }
-
-        #endregion
-
-
+        
         #endregion
 
         #region Команды
@@ -133,21 +121,23 @@ namespace MoldsApp.ViewModels
 
         public ICommand DeleteMoldCommand { get; }
 
-        private bool CanDeleteMoldCommandExecute(object p)
+        private bool CanDeleteMoldCommandExecute(object SelectedItems)
         {
-            if (MoldsForRemoving != null) return true;
-            else MessageBox.Show("Вы не выбрали элемент в таблице.", "Ошибка",
-         MessageBoxButton.OK, MessageBoxImage.Error); return false;
+            if (SelectedItems != null) return true; else return false;
+            
         }
-
-        private void OnDeleteMoldCommandExecuted(object p)
+       
+        private void OnDeleteMoldCommandExecuted(object SelectedItems)
         {
-            if (MessageBox.Show($"Вы точно хотите удалить следующие {MoldsForRemoving.Count()} элементов?", "Внимание",
+            System.Collections.IList items = (System.Collections.IList)SelectedItems;
+            var moldsforRemoving = items?.Cast<Molds>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {moldsforRemoving.Count()} элементов?", "Внимание",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
-                    ApplicationContext.GetContext().Molds.RemoveRange(MoldsForRemoving);
+                    ApplicationContext.GetContext().Molds.RemoveRange(moldsforRemoving);
                     ApplicationContext.GetContext().SaveChanges();
                     MessageBox.Show("Данные успешно удалены.", "Удаление данных",
          MessageBoxButton.OK, MessageBoxImage.Information);
@@ -185,7 +175,7 @@ namespace MoldsApp.ViewModels
             TxtType = null;
 
             #endregion
-
+          
         }
     }
 }

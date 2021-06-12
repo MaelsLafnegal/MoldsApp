@@ -47,7 +47,7 @@
                   Grid.Column="1"
                   Grid.Row="1"
                   ItemsSource="{Binding Path=FilteredMolds}"
-                  SelectedItem="{Binding Path=MoldsForRemoving}">
+                  >
             
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер" Binding="{Binding Id}" Width="Auto"></DataGridTextColumn>
@@ -109,7 +109,9 @@
                     Content="Удалить"
                     FontSize="20"
                     materialDesign:ButtonAssist.CornerRadius="4"
-                    HorizontalAlignment="Center"/>
+                    HorizontalAlignment="Center"
+                    CommandParameter="{Binding ElementName=DGridMolds, Path=SelectedItems}"
+                    Command="{Binding DeleteMoldCommand}"/>
 
             <Button Grid.Column="1" 
                     Grid.Row="2"
