@@ -35,7 +35,6 @@ namespace MoldsApp.ViewModels
         #endregion
 
         
-
         #endregion
 
         public AddEditWindowViewModel()

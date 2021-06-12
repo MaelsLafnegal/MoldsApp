@@ -132,7 +132,7 @@ namespace MoldsApp.ViewModels
             System.Collections.IList items = (System.Collections.IList)SelectedItems;
             var moldsforRemoving = items?.Cast<Molds>().ToList();
 
-            if (MessageBox.Show($"Вы точно хотите удалить следующие {moldsforRemoving.Count()} элементов?", "Внимание",
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {moldsforRemoving.Count()} пресс-деталей?", "Внимание",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
@@ -141,7 +141,7 @@ namespace MoldsApp.ViewModels
                     ApplicationContext.GetContext().SaveChanges();
                     MessageBox.Show("Данные успешно удалены.", "Удаление данных",
          MessageBoxButton.OK, MessageBoxImage.Information);
-                    OnPropertyChanged("FilteredMolds");
+                    OnPropertyChanged();
                 }
 
                 catch (Exception ex)
