@@ -30,7 +30,7 @@ namespace MoldsApp.ViewModels
 
         private void OnCloseWindowCommandExecuted(object p)
         {
-            Application.Current.Windows[1].Close();
+            Application.Current.Windows[1].Close();           
         }
         #endregion
 
