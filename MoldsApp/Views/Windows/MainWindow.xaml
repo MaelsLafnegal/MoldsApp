@@ -13,7 +13,7 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         WindowStyle="None"
-        Background="{x:Null}"
+        Background="Transparent"
         AllowsTransparency="True">
 
     <Window.DataContext>
