@@ -28,7 +28,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
-            <TextBlock Margin="5" materialDesign:HintAssist.Hint="Укажите тип" Foreground="Black"/>
+            <TextBlock Height="30" Margin="5" materialDesign:HintAssist.Hint="Укажите тип" Foreground="Black"/>
             <TextBlock Margin="5"/>
             <TextBlock Margin="5"/>
         </StackPanel>

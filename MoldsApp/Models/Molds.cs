@@ -39,5 +39,7 @@ namespace MoldsApp.Models
         public string Press { get; set; }
 
         public string Note { get; set; }
+
+        public byte[] ImagePreview { get; set; }
     }
 }
