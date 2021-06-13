@@ -8,7 +8,7 @@ namespace MoldsApp.Models
 
     public partial class Molds
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [StringLength(50)]
