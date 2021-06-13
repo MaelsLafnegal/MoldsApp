@@ -17,7 +17,11 @@ namespace MoldsApp.ViewModels
     {
         #region Переменные     
 
-        
+        #region Контекст данных
+
+        private Molds _currentMold = new Molds();
+
+        #endregion
 
         #endregion
 
@@ -51,6 +55,7 @@ namespace MoldsApp.ViewModels
 
         public AddEditWindowViewModel()
         {
+            
             #region Экземпляры команд
 
             CloseWindowCommand = new LamdaCommand(OnCloseWindowCommandExecuted, CanCloseWindowCommandExecute);

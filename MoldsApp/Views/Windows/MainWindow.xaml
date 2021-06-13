@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoldsApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:vm="clr-namespace:MoldsApp.ViewModels"       
+        xmlns:vm="clr-namespace:MoldsApp.ViewModels"
+        xmlns:cmd="clr-namespace:MoldsApp.Infrastructure.Commands"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="750" 
@@ -19,6 +20,10 @@
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
+
+    <Window.Resources>
+        
+    </Window.Resources>
 
     <Border Background="#2f2e3c" 
             CornerRadius="10">
@@ -71,7 +76,7 @@
                 <DataGridTemplateColumn Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Width="150" 
+                                <Button Width="150" 
                                     Height="40" 
                                     Style="{StaticResource MaterialDesignRaisedButton}" 
                                     materialDesign:ButtonAssist.CornerRadius="6" 
@@ -81,8 +86,13 @@
                                     FontFamily="C:\Users\nicen\source\repos\g4mesh0p\g4mesh0p\Fonts\#Russo One" 
                                     ToolTip="Редактирует запись в таблице" 
                                     Content="Редактировать" 
-                                    Name="BtnEdit"/>
-                        </DataTemplate>
+                                    Name="BtnEdit"                                   
+                                    CommandParameter="{Binding}">
+                                    <Button.Command>
+                                        <cmd:EditCommand/>
+                                    </Button.Command>
+                                </Button>
+                            </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
