@@ -108,10 +108,11 @@ namespace MoldsApp.ViewModels
         #region Open AddEditWindowCommand
         public ICommand AddEditWindowCommand { get; }
 
-        private bool CanAddEditWindowCommandExecute(object p) => true;
+        private bool CanAddEditWindowCommandExecute(object SelectedRow) => true;
 
-        private void OnAddEditWindowCommandExecuted(object p)
+        private void OnAddEditWindowCommandExecuted(object SelectedRow)
         {
+            
             AddEditWindow window = new AddEditWindow();
             window.Show();
         }

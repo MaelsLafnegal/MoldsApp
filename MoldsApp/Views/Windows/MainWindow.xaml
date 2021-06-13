@@ -87,10 +87,9 @@
                                     ToolTip="Редактирует запись в таблице" 
                                     Content="Редактировать" 
                                     Name="BtnEdit"                                   
-                                    CommandParameter="{Binding}">
-                                    <Button.Command>
-                                        <cmd:EditCommand/>
-                                    </Button.Command>
+                                    CommandParameter="{Binding}"
+                                    Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=DataContext.AddEditWindowCommand}">
+                                    
                                 </Button>
                             </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
