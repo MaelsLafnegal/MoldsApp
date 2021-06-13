@@ -23,6 +23,10 @@
     <Border Background="#2f2e3c" 
             CornerRadius="10">
 
+        <Border.InputBindings>
+            
+        </Border.InputBindings>
+
         <Grid>
         
         <Grid.ColumnDefinitions>

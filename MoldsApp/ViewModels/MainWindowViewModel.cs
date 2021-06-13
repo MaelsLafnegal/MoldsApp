@@ -154,6 +154,19 @@ namespace MoldsApp.ViewModels
 
         #endregion
 
+        #region DragMoveCommand
+
+        public ICommand DragMoveCommand { get; }
+
+        private bool CanDragMoveCommandExecute(object p) => true;
+
+        private void OnDragMoveCommandExecuted(object p)
+        {
+            Application.Current.MainWindow.DragMove();
+        }
+
+        #endregion
+
         #endregion
 
         public MainWindowViewModel()
@@ -164,6 +177,7 @@ namespace MoldsApp.ViewModels
             SearchCommand = new LamdaCommand(OnSearchCommandExecuted, CanSearchCommandExecute);
             AddEditWindowCommand = new LamdaCommand(OnAddEditWindowCommandExecuted, CanAddEditWindowCommandExecute);
             DeleteMoldCommand = new LamdaCommand(OnDeleteMoldCommandExecuted, CanDeleteMoldCommandExecute);
+            DragMoveCommand = new LamdaCommand(OnDragMoveCommandExecuted, CanDragMoveCommandExecute);
 
 
             #endregion
