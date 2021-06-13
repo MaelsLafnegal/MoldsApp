@@ -7,13 +7,23 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:vm="clr-namespace:MoldsApp.ViewModels"  
-        Title="AddEditWindow" Height="450" Width="800">
+        Title="AddEditWindow" Height="650" Width="800"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True">
 
     <Window.DataContext>
         <vm:AddEditWindowViewModel/>
     </Window.DataContext>
 
-    <Grid>
+    <Border Background="#2f2e3c" 
+            CornerRadius="10">
+
+        <Border.InputBindings>
+            <MouseBinding Command="{Binding DragMoveCommand}" MouseAction="LeftClick"/>
+        </Border.InputBindings>
+
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition/>
@@ -27,16 +37,46 @@
             <ColumnDefinition Width="30"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
-            <TextBlock Height="30" Margin="5" materialDesign:HintAssist.Hint="Укажите тип" Foreground="Black"/>
-            <TextBlock Margin="5"/>
-            <TextBlock Margin="5"/>
-        </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical">
+                <TextBlock Text="Добавить" FontSize="22" Foreground="White" HorizontalAlignment="Center" Margin="0,30,0,0"/>
+                <TextBox Foreground="White" Text="{Binding TxtType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5, 35, 5, 5" materialDesign:HintAssist.Hint="Укажите тип"/>
+                <TextBox Foreground="White" Text="{Binding TxtName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите пресс-форму"/>
+                <TextBox Foreground="White" Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите кус"/>
+                <TextBox Foreground="White" Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите кол-во матриц"/>
+                <TextBox Foreground="White" Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите кол-во пуансонов"/>
+                <TextBox Foreground="White" Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите кол-во выталкивателей"/>
+                <TextBox Foreground="White" Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите кол-во центров"/>
+                <TextBox Foreground="White" Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите размер пуансона"/>
+                <TextBox Foreground="White" Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите размер центра"/>
+                <TextBox Foreground="White" Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите высоту матрицы"/>
+                <TextBox Foreground="White" Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите пресс"/>
+                <TextBox Foreground="White" Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Примечание" TextWrapping="Wrap"/>
+                
+                <Button Content="Сохранить" Width="130" Margin="0,20,0,0"/>
 
-        <Button Content="Закрыть окно" 
+            </StackPanel>
+
+            <Button Content="Закрыть окно" 
                 Command="{Binding CloseWindowCommand}" 
                 Width="150" 
                 Grid.Column="2"/>
-    </Grid>
-   
+
+            <Image Grid.Column="2"
+                   Grid.Row="1"
+                   Width="300" 
+                   Height="300" 
+                   VerticalAlignment="Center"                    
+                   Stretch="UniformToFill">
+                <Image.Source>
+                    <Binding Path="ImagePreview">
+                        <Binding.TargetNullValue>
+                            <ImageSource>C:\Users\nicen\source\repos\GameShop\GameShop\Resources\empty.png</ImageSource>
+                        </Binding.TargetNullValue>
+                    </Binding>
+                </Image.Source>
+            </Image>
+        </Grid>
+
+    </Border>
+
 </Window>

@@ -17,7 +17,7 @@ namespace MoldsApp.ViewModels
     {
         #region Переменные     
 
-
+        
 
         #endregion
 
@@ -34,7 +34,19 @@ namespace MoldsApp.ViewModels
         }
         #endregion
 
-        
+        #region DragMoveAddEditWindowCommand
+
+        public ICommand DragMoveAddEditWindowCommand { get; }
+
+        private bool CanDragMoveAddEditWindowCommandExecute(object p) => true;
+
+        private void OnDragMoveAddEditWindowCommandExecuted(object p)
+        {
+            Application.Current.Windows[1].DragMove();
+        }
+
+        #endregion
+
         #endregion
 
         public AddEditWindowViewModel()
@@ -42,9 +54,10 @@ namespace MoldsApp.ViewModels
             #region Экземпляры команд
 
             CloseWindowCommand = new LamdaCommand(OnCloseWindowCommandExecuted, CanCloseWindowCommandExecute);
-            
+            DragMoveAddEditWindowCommand = new LamdaCommand(OnDragMoveAddEditWindowCommandExecuted, CanDragMoveAddEditWindowCommandExecute);
+
             #endregion
-          
+
         }
     }
 }
