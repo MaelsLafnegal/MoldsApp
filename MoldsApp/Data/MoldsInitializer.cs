@@ -14,8 +14,8 @@ namespace MoldsApp.Data
         {
             List<Molds> InitializerList = new List<Molds> {
 
-                new Molds { Id = 1, Type = "К", Name = "К20х12х6", Kus = "1,11", Matrix_Amount = 1, Punch_Amount = 2, Ejector_Amount = 1, Centre_Amount = null, Punch_Size = "22,2", Center_Size = 13.33, Matrix_Height = 26, Press = "Пресс 292", Note = null },
-                new Molds { Id = 2, Type = "К", Name = "К20х12х6", Kus = "1,11", Matrix_Amount = 1, Punch_Amount = 3, Ejector_Amount = 1, Centre_Amount = null, Punch_Size = "22,2", Center_Size = 13.33, Matrix_Height = 26, Press = "Пресс 292", Note = null },
+                new Molds { Type = "К", Name = "К20х12х6", Kus = "1,11", Matrix_Amount = 1, Punch_Amount = 2, Ejector_Amount = 1, Centre_Amount = null, Punch_Size = "22,2", Center_Size = 13.33, Matrix_Height = 26, Press = "Пресс 292", Note = null },
+                new Molds { Type = "К", Name = "К20х12х6", Kus = "1,11", Matrix_Amount = 1, Punch_Amount = 3, Ejector_Amount = 1, Centre_Amount = null, Punch_Size = "22,2", Center_Size = 13.33, Matrix_Height = 26, Press = "Пресс 292", Note = null },
 
         };
                      
