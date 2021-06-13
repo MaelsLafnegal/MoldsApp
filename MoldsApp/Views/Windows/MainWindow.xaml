@@ -24,7 +24,7 @@
             CornerRadius="10">
 
         <Border.InputBindings>
-            
+            <MouseBinding Command="{Binding DragMoveCommand}" MouseAction="LeftClick"/>
         </Border.InputBindings>
 
         <Grid>
