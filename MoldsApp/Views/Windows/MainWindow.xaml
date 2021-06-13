@@ -13,7 +13,8 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         WindowStyle="None"
-        Background="{x:Null}">
+        Background="{x:Null}"
+        AllowsTransparency="True">
 
     <Window.DataContext>
         <vm:MainWindowViewModel/>
