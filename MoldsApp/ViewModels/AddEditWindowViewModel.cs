@@ -25,8 +25,6 @@ namespace MoldsApp.ViewModels
         {
         }
 
-
-
         #endregion
 
         #endregion
@@ -57,8 +55,40 @@ namespace MoldsApp.ViewModels
 
         #endregion
 
+        #region SaveMoldCommand
+
+        public ICommand SaveMoldCommand { get; }
+
+        private bool CanSaveMoldCommandExecute(object p) => true;
+
+        private void OnSaveMoldCommandExecuted(object p)
+        {
+            if (CurrentMold.Id == 0)
+            {
+                ApplicationContext.GetContext().Molds.Add(CurrentMold);
+            }
+
+            try
+            {
+                //_currentGame.ImagePreview = File.ReadAllBytes(txtImage.Text);
+                ApplicationContext.GetContext().SaveChanges();
+                MessageBox.Show("Информация сохранена.", "Успешно",
+         MessageBoxButton.OK, MessageBoxImage.Information);
+                Application.Current.Windows[1].Close();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Ошибка",
+        MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         #endregion
-       
+
+        #endregion
+
         public AddEditWindowViewModel(Molds currentMold)
         {
             #region Экземпляры переменных
@@ -71,7 +101,7 @@ namespace MoldsApp.ViewModels
 
             CloseWindowCommand = new LamdaCommand(OnCloseWindowCommandExecuted, CanCloseWindowCommandExecute);
             DragMoveAddEditWindowCommand = new LamdaCommand(OnDragMoveAddEditWindowCommandExecuted, CanDragMoveAddEditWindowCommandExecute);
-
+            SaveMoldCommand = new LamdaCommand(OnSaveMoldCommandExecuted, CanSaveMoldCommandExecute);
             #endregion
         }
     }
