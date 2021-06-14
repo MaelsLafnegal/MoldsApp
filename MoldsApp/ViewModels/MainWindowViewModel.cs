@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Input;
 using MoldsApp.Data;
 using MoldsApp.Infrastructure.Commands;
+using MoldsApp.Infrastructure.Interfaces;
 using MoldsApp.Models;
 using MoldsApp.ViewModels.Base;
 using MoldsApp.Views.Windows;
@@ -111,12 +112,13 @@ namespace MoldsApp.ViewModels
         private bool CanAddMoldCommandExecute(object SelectedRow) => true;
 
         private void OnAddMoldCommandExecuted(object SelectedRow)
-        {           
+        {
             AddEditWindow window = new AddEditWindow()
             {
                 DataContext = new AddEditWindowViewModel()
             };
             window.Show();
+            //var result = SomeDialogService.ShowDialog(AddEditWindow);
         }
         #endregion
 
