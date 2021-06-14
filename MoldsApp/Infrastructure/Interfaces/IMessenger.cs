@@ -8,6 +8,6 @@ namespace MoldsApp.Infrastructure.Interfaces
 {
     public interface IMessenger
     {
-        void Notify(object sender, string ev);
+        void Notify(object sender, object DataContextViewModel);
     }
 }
