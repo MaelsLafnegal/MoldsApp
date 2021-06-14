@@ -15,8 +15,8 @@ namespace MoldsApp.ViewModels
 {
     internal class AddEditWindowViewModel : ViewModel
     {
-        #region Переменные     
-
+        #region Переменные 
+       
         #region Контекст данных
         public Molds CurrentMold { get; }
 
@@ -94,7 +94,7 @@ namespace MoldsApp.ViewModels
             #region Экземпляры переменных
 
             CurrentMold = currentMold;
-
+            
             #endregion
 
             #region Экземпляры команд

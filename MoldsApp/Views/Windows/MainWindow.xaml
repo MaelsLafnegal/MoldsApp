@@ -111,7 +111,7 @@
                     FontSize="20"
                     materialDesign:ButtonAssist.CornerRadius="4"
                     HorizontalAlignment="Left"
-                    Command="{Binding AddEditWindowCommand}"/>
+                    Command="{Binding AddMoldCommand}"/>
             
             <Button Grid.Column="1" 
                     Grid.Row="2"

@@ -68,7 +68,7 @@
                    VerticalAlignment="Center"                    
                    Stretch="UniformToFill">
                 <Image.Source>
-                    <Binding Path="ImagePreview">
+                    <Binding Path="CurrentMolds.ImagePreview">
                         <Binding.TargetNullValue>
                             <ImageSource>C:\Users\nicen\source\repos\GameShop\GameShop\Resources\empty.png</ImageSource>
                         </Binding.TargetNullValue>

@@ -105,6 +105,21 @@ namespace MoldsApp.ViewModels
 
         #endregion
 
+        #region AddMoldCommand
+        public ICommand AddMoldCommand { get; }
+
+        private bool CanAddMoldCommandExecute(object SelectedRow) => true;
+
+        private void OnAddMoldCommandExecuted(object SelectedRow)
+        {           
+            AddEditWindow window = new AddEditWindow()
+            {
+                DataContext = new AddEditWindowViewModel()
+            };
+            window.Show();
+        }
+        #endregion
+
         #region Open AddEditWindowCommand
         public ICommand AddEditWindowCommand { get; }
 
@@ -112,7 +127,6 @@ namespace MoldsApp.ViewModels
 
         private void OnAddEditWindowCommandExecuted(object SelectedRow)
         {
-
             AddEditWindow window = new AddEditWindow()
             {
                 DataContext = new AddEditWindowViewModel((Molds)SelectedRow)
@@ -182,6 +196,7 @@ namespace MoldsApp.ViewModels
             AddEditWindowCommand = new LamdaCommand(OnAddEditWindowCommandExecuted, CanAddEditWindowCommandExecute);
             DeleteMoldCommand = new LamdaCommand(OnDeleteMoldCommandExecuted, CanDeleteMoldCommandExecute);
             DragMoveCommand = new LamdaCommand(OnDragMoveCommandExecuted, CanDragMoveCommandExecute);
+            AddMoldCommand = new LamdaCommand(OnAddMoldCommandExecuted, CanAddMoldCommandExecute);
 
 
             #endregion
