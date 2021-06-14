@@ -112,8 +112,11 @@ namespace MoldsApp.ViewModels
 
         private void OnAddEditWindowCommandExecuted(object SelectedRow)
         {
-            
-            AddEditWindow window = new AddEditWindow();
+
+            AddEditWindow window = new AddEditWindow()
+            {
+                DataContext = new AddEditWindowViewModel((Molds)SelectedRow)
+            };
             window.Show();
         }
         #endregion

@@ -18,8 +18,14 @@ namespace MoldsApp.ViewModels
         #region Переменные     
 
         #region Контекст данных
+        public Molds CurrentMold { get; }
 
-        private Molds _currentMold = new Molds();
+        public AddEditWindowViewModel()
+            : this(new Molds())
+        {
+        }
+
+
 
         #endregion
 
@@ -52,17 +58,21 @@ namespace MoldsApp.ViewModels
         #endregion
 
         #endregion
-
-        public AddEditWindowViewModel()
+       
+        public AddEditWindowViewModel(Molds currentMold)
         {
-            
+            #region Экземпляры переменных
+
+            CurrentMold = currentMold;
+
+            #endregion
+
             #region Экземпляры команд
 
             CloseWindowCommand = new LamdaCommand(OnCloseWindowCommandExecuted, CanCloseWindowCommandExecute);
             DragMoveAddEditWindowCommand = new LamdaCommand(OnDragMoveAddEditWindowCommandExecuted, CanDragMoveAddEditWindowCommandExecute);
 
             #endregion
-
         }
     }
 }

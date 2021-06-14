@@ -39,9 +39,9 @@
 
             <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical">
                 <TextBlock Text="Добавить" FontSize="22" Foreground="White" HorizontalAlignment="Center" Margin="0,30,0,0"/>
-                <TextBox Foreground="White" Text="{Binding TxtType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5, 35, 5, 5" materialDesign:HintAssist.Hint="Укажите тип"/>
-                <TextBox Foreground="White" Text="{Binding TxtName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите пресс-форму"/>
-                <TextBox Foreground="White" Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите кус"/>
+                <TextBox Foreground="White" Text="{Binding Path=CurrentMold.Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="5, 35, 5, 5" materialDesign:HintAssist.Hint="Укажите тип"/>
+                <TextBox Foreground="White" Text="{Binding CurrentMold.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите пресс-форму"/>
+                <TextBox Foreground="White" Text="{Binding Kus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите кус"/>
                 <TextBox Foreground="White" Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите кол-во матриц"/>
                 <TextBox Foreground="White" Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите кол-во пуансонов"/>
                 <TextBox Foreground="White" Text="{Binding TxtKus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Укажите кол-во выталкивателей"/>
