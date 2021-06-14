@@ -75,6 +75,7 @@ namespace MoldsApp.ViewModels
                 MessageBox.Show("Информация сохранена.", "Успешно",
          MessageBoxButton.OK, MessageBoxImage.Information);
                 Application.Current.Windows[1].Close();
+                OnPropertyChanged();
 
             }
 
