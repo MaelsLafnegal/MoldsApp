@@ -89,6 +89,7 @@
     <Compile Include="Infrastructure\Commands\EditCommand.cs" />
     <Compile Include="Infrastructure\Commands\LamdaCommand.cs" />
     <Compile Include="Data\ApplicationContext.cs" />
+    <Compile Include="Infrastructure\Interfaces\IMessenger.cs" />
     <Compile Include="Models\Molds.cs" />
     <Compile Include="ViewModels\AddEditWindowViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
