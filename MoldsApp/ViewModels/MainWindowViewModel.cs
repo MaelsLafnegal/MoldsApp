@@ -8,7 +8,6 @@ using System.Windows;
 using System.Windows.Input;
 using MoldsApp.Data;
 using MoldsApp.Infrastructure.Commands;
-using MoldsApp.Infrastructure.Interfaces;
 using MoldsApp.Models;
 using MoldsApp.ViewModels.Base;
 using MoldsApp.Views.Windows;
