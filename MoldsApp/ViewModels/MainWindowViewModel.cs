@@ -149,7 +149,23 @@ namespace MoldsApp.ViewModels
 
         private void OnEditCommandExecuted(object p)
         {
-            
+            Molds molds = (Molds)p;
+
+            // At this point, there should be element preprocessing code.
+            // Let's say copying for the possibility of canceling the result of editing.
+            Molds moldsCopy = molds.Copy();
+
+            // Calling a dialog and getting its result
+            var result = editDialog(moldsCopy);
+
+            if (result)
+            {
+                // Saving the result.
+                // And changing the item to match the edited copy.
+
+                Save(moldsCopy);
+                molds.CopyValuesFrom(moldsCopy);
+            }
         }
         #endregion
 
@@ -205,6 +221,24 @@ namespace MoldsApp.ViewModels
 
         #endregion
 
+        #region Методы
+
+        #region Save()
+        private void Save(Molds moldsCopy)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region Copy()
+        private void Copy(Molds)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #endregion
+
         public MainWindowViewModel(Func<Molds, bool> editDialog)
         {
             this.editDialog = editDialog;
@@ -219,6 +253,7 @@ namespace MoldsApp.ViewModels
             DeleteMoldCommand = new LamdaCommand(OnDeleteMoldCommandExecuted, CanDeleteMoldCommandExecute);
             DragMoveCommand = new LamdaCommand(OnDragMoveCommandExecuted, CanDragMoveCommandExecute);
             AddMoldCommand = new LamdaCommand(OnAddMoldCommandExecuted, CanAddMoldCommandExecute);
+            EditCommand = new LamdaCommand(OnEditCommandExecuted, CanEditCommandExecute);
 
 
             #endregion

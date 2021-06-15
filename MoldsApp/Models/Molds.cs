@@ -41,5 +41,6 @@ namespace MoldsApp.Models
         public string Note { get; set; }
 
         public byte[] ImagePreview { get; set; }
+       
     }
 }
