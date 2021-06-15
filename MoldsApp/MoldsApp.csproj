@@ -129,6 +129,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Infrastructure\Classes\" />
     <Folder Include="Infrastructure\Interfaces\" />
     <Folder Include="Services\" />
   </ItemGroup>

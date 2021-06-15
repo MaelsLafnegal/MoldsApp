@@ -66,14 +66,9 @@
                    Width="300" 
                    Height="300" 
                    VerticalAlignment="Center"                    
-                   Stretch="UniformToFill">
-                <Image.Source>
-                    <Binding Path="CurrentMolds.ImagePreview">
-                        <Binding.TargetNullValue>
-                            <ImageSource>C:\Users\nicen\source\repos\GameShop\GameShop\Resources\empty.png</ImageSource>
-                        </Binding.TargetNullValue>
-                    </Binding>
-                </Image.Source>
+                   Stretch="UniformToFill"
+                   Source="{Binding CurrentMold.ImagePreview}">
+                
             </Image>
         </Grid>
 
