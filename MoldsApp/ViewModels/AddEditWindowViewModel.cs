@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace MoldsApp.ViewModels
 {
-    internal class AddEditWindowViewModel : ViewModel
+    internal class AddEditWindowViewModel : MainWindowViewModel
     {
         #region Переменные 
        
@@ -75,7 +75,8 @@ namespace MoldsApp.ViewModels
                 MessageBox.Show("Информация сохранена.", "Успешно",
          MessageBoxButton.OK, MessageBoxImage.Information);
                 Application.Current.Windows[1].Close();
-                OnPropertyChanged();
+                AllMolds = new ObservableCollection<Molds>(ApplicationContext.GetContext().Molds.ToList());
+                OnPropertyChanged("FilteredMolds");
 
             }
 
