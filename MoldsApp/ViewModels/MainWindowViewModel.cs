@@ -14,7 +14,7 @@ using MoldsApp.Views.Windows;
 
 namespace MoldsApp.ViewModels
 {
-    internal class MainWindowViewModel : ViewModel
+    public class MainWindowViewModel : ViewModel
     {
       
         #region Переменные
