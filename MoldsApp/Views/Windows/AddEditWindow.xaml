@@ -67,8 +67,9 @@
                    Height="300" 
                    VerticalAlignment="Center"                    
                    Stretch="UniformToFill"
-                   Source="{Binding CurrentMold.ImagePreview}">
-                
+                   Source="{Binding CurrentMold.ImagePreview}"
+                   >
+                                
             </Image>
         </Grid>
 
