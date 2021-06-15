@@ -85,6 +85,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Data\MoldsInitializer.cs" />
+    <Compile Include="Infrastructure\Classes\Locator.cs" />
     <Compile Include="Infrastructure\Commands\Base\Command.cs" />
     <Compile Include="Infrastructure\Commands\EditCommand.cs" />
     <Compile Include="Infrastructure\Commands\LamdaCommand.cs" />
@@ -129,7 +130,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Infrastructure\Classes\" />
     <Folder Include="Infrastructure\Interfaces\" />
     <Folder Include="Services\" />
   </ItemGroup>
