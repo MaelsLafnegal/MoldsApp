@@ -76,7 +76,13 @@ namespace MoldsApp.ViewModels
 
         #endregion
 
-        
+        #region Для EditCommand
+
+        private readonly Func<Molds, bool> editDialog;
+
+        #endregion
+
+
         #endregion
 
         #region Команды
@@ -136,6 +142,17 @@ namespace MoldsApp.ViewModels
         }
         #endregion
 
+        #region EditCommand
+        public ICommand EditCommand { get; }
+
+        private bool CanEditCommandExecute(object p) => p is Molds;
+
+        private void OnEditCommandExecuted(object p)
+        {
+            
+        }
+        #endregion
+
         #region DeleteMoldCommand
 
         public ICommand DeleteMoldCommand { get; }
@@ -188,6 +205,10 @@ namespace MoldsApp.ViewModels
 
         #endregion
 
+        public MainWindowViewModel(Func<Molds, bool> editDialog)
+        {
+            this.editDialog = editDialog;
+        }
         public MainWindowViewModel()
         {
             #region Экземпляры команд
