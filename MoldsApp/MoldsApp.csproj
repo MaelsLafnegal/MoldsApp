@@ -89,8 +89,6 @@
     <Compile Include="Infrastructure\Commands\EditCommand.cs" />
     <Compile Include="Infrastructure\Commands\LamdaCommand.cs" />
     <Compile Include="Data\ApplicationContext.cs" />
-    <Compile Include="Infrastructure\Interfaces\IDialogService.cs" />
-    <Compile Include="Infrastructure\Interfaces\SomeDialogService.cs" />
     <Compile Include="Models\Molds.cs" />
     <Compile Include="ViewModels\AddEditWindowViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
@@ -131,6 +129,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Infrastructure\Interfaces\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
